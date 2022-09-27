@@ -26,6 +26,7 @@ The following readme will go through how to set up a content repository for Taxi
     ]
 }
 ```
+<img src="https://user-images.githubusercontent.com/8294014/192653257-a6a082a7-86f1-4ea0-a43c-9021b6fd8894.png" width="550" height="200">
 
 2. Now go into AWS Lambda and create a new function. Title the function, choose Runtime Python 3.8, and leave the rest of the defaults.
 
