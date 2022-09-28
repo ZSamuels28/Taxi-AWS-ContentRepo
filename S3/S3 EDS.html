@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+    </title>
+    <body>
+        <modulezone name="header" label="Landing Page Header">
+            <module name="header" label="Header">
+                <feed name="S3"></feed>
+                <p align="left">
+                    <field type="text" name="title" label="Event Title" feed-source="{{feed.S3.Name}}"></field>
+                    <label for="title">
+                        <content replace="{{title}}">Title</content>
+                    </label>
+                    <br><br>
+                    <field type="src" name="src" label="Image source" feed-source="{{feed.S3.URL}}" expect="must-change" allow-none></field>
+                    <img src="https://dummyimage.com/600x300" replace-src="{{src}}" width="600" height="300" alt="S3 Feed Images">
+                    <br><br>
+                </p>
+            </module>
+        </modulezone>
+    </body>
+</html>
