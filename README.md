@@ -12,23 +12,7 @@ The following readme will go through how to set up a content repository for Taxi
 
 1. Create an S3 bucket to be used as a content repository. If you would like you can create a folder **content** and put the content within there, however, everything in the S3 bucket will be pulled into the repository. *You will need to ensure these assets are public otherwise Taxi will not be able to see them.* The following bucket policy can be used to make the S3 bucket public (note you will need to replace the ARN):
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AddPerm",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "REPLACE_WITH_ARN/*"
-        }
-    ]
-}
-```
-<img src="https://user-images.githubusercontent.com/8294014/192653257-a6a082a7-86f1-4ea0-a43c-9021b6fd8894.png" width="550">
-
-2. Now go into AWS Lambda and create a new function. Title the function, choose Runtime Python 3.8, and leave the rest of the defaults. *You will need to allow the execution role to read from S3 buckets, so if you already have an IAM Lambda Execution role with these permissions, you can use it, otherwise modify the role via the next step*
+2. Access AWS Lambda and create a new function. Title the function, choose Runtime Python 3.8, and leave the rest of the defaults. *You will need to allow the execution role to read from S3 buckets, so if you already have an IAM Lambda Execution role with these permissions, you can use it, otherwise modify the role via the next step*
 
 3. Once the function is created, click on **Configuration** and go to **Permissions**. Here you will see the execution role that Lambda is using. Click on this role to be taken to the IAM management console. Attach the policy for S3 Read Only access to this role.
 
