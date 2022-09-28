@@ -8,8 +8,8 @@ The following readme will go through how to set up a content repository for Taxi
 
 *Note these will require using AWS API Gateway and AWS Lambda.*
 
-<a href="https://github.com/ZSamuels28/Taxi-AWS-ContentRepo/edit/main/README.md#amazon_s3">Creating a Content Repository in Taxi using Amazon S3</a><br />
-<a href="https://github.com/ZSamuels28/Taxi-AWS-ContentRepo/edit/main/README.md#resourcespace">Creating a Content Repository in Taxi using ResourceSpace</a>
+<a href="https://github.com/ZSamuels28/Taxi-AWS-ContentRepo#amazon_s3">Creating a Content Repository in Taxi using Amazon S3</a><br />
+<a href="https://github.com/ZSamuels28/Taxi-AWS-ContentRepo#resourcespace">Creating a Content Repository in Taxi using ResourceSpace</a>
 
 ----------------------------------
 <!----><a name="amazon_s3"></a>
