@@ -31,7 +31,9 @@ The following readme will go through how to set up a content repository for Taxi
 
 10. Test out the API by going to **Configuration**, grabbing the API Endpoint for get-objects, and putting it directly into a browser (or clicking on it). If you have objects in your S3 bucket, this should return a response. From there you can test get-object-url by grabbing an ETag from the get-objects, and testing with the URL https://[AWS-API-URL]/[DeploymentStage]/get-object-url?ETag=[ETag]
 
-11. Now we can begin the configuration within Taxi.
+11. If you would like to add an authorizer via a lambda function to this API in order to secure it, please see the following video: https://www.youtube.com/watch?v=al5I9v5Y-kA
+
+12. Now we can begin the configuration within Taxi.
 
 
 ## ResourceSpace
