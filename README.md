@@ -20,7 +20,7 @@ The following readme will go through how to set up a content repository for Taxi
 
 5. Go to the **Code** section within the Lambda function and paste the code found within the S3 folder of this repo. Save and deploy the code.
 
-6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources with no authentication: **get-object-url** and **get-objects**
+6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources: **get-object-url** and **get-objects**, do not check the Configure as proxy resource box.
 
 7. Create a **GET** method under each of these resources, check the box for *Use Lambda Proxy integration*, and attach the Lambda Function to each of these methods.
 <img width="200" src="https://user-images.githubusercontent.com/8294014/192674274-1d58e65b-19d4-415a-8189-a9579b195869.png">
