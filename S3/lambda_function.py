@@ -6,12 +6,7 @@ import os
 
 
 def lambda_handler(event, context):
-    s3 = boto3.client(
-        "s3",
-        region_name="us-west-2",
-        aws_access_key_id=os.getenv("AWS_KEY_ID"),
-        aws_secret_access_key=os.getenv("AWS_SECRET"),
-    )
+    s3 = boto3.client("s3")
     obj_list = s3.list_objects_v2(Bucket=os.getenv("BUCKET_NAME"))
     objects = []
     response = {}
