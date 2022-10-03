@@ -15,7 +15,7 @@ The following readme will go through how to set up a content repository for Taxi
 <!----><a name="amazon_s3"></a>
 ## Amazon S3
 
-1. Create an S3 bucket to be used as a content repository. If you would like you can create a folder **content** and put the content within there, however, everything in the S3 bucket will be pulled into the repository. *You will need to ensure these assets are public otherwise Taxi will not be able to see them.*
+1. Create an S3 bucket to be used as a content repository. If you would like you can create a folder **content** and put the content within there, however, everything in the S3 bucket will be pulled into the repository. *You do not need to have these objects be public and can keep them as private as the Lambda function will only need access per the next step*
 
 2. Once the S3 bucket is created and populated with a few items, go to AWS Lambda and create a new function. Add a title of the function, choose Runtime Python 3.8, and leave the rest as defaults. *You will need to allow the execution role to read from S3 buckets, so if you already have an IAM Lambda Execution role with S3 Read permissions, you can use it, otherwise modify the role via the next step*
 
