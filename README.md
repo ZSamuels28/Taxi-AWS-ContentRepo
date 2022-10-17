@@ -87,6 +87,21 @@ The following readme will go through how to set up a content repository for Taxi
 21. Once the Email Design System is uploaded, go to **Feeds** and click on the mz[header].modules[header]. You should see the ability to now map the feed you created as well as the data items. Make sure the Parameter name etag is changed to use a helper value and use the helper you created in step 17.
 
 22. Create a new mailing, add the header module and then click Search For Feed Data. This should now show all of your resources in the S3 bucket. When you click on one of these resources, the image and title should populate.
+
+Advanced Steps: Adding a Cloudfront Cache
+1) See https://medium.com/@tsubasakondo_36683/serve-images-with-cloudfront-s3-8691d5c387b6 for creating a CloudFront distribution. Ensure you can access the CloudFront URLs publicly.
+
+2) In the Lambda function, modify line objects in line 17 and line 35, where the "Url" value should be equal to your CloudFront url + key["key"]. For example:
+```python
+    object = {
+        "Name": os.path.splitext(os.path.basename(key["Key"]))[0],
+        "Url": "https://[CLOUDFRONTURL]"
+        + key["Key"],
+    }
+```
+
+3) Save and deploy and this should now be using your CloudFront distribution to cache images
+
 ----------------------------------
 <!----><a name="resourcespace"></a>
 ## ResourceSpace
