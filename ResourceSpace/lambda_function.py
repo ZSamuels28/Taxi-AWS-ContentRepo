@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import requests
 import hashlib
 import json
 import os
 import urllib
+import urllib.request
 
 
 def buildQuery(**params):
@@ -18,6 +18,12 @@ def buildQuery(**params):
     )
     return params
 
+def callAPI(params):
+    webURL = urllib.request.urlopen(os.getenv("BASE_URL") + "?" + urllib.parse.urlencode(params, doseq=False))
+    data = webURL.read()
+    encoding = webURL.info().get_content_charset('utf-8')
+    response = json.loads(data.decode(encoding))
+    return response
 
 def lambda_handler(event, context):
 
@@ -31,9 +37,9 @@ def lambda_handler(event, context):
                 "resource": referenceID,
             }
         )
-        response = requests.get(os.getenv("BASE_URL"), params=params)
+        response = callAPI(params)
 
-        for i in response.json():
+        for i in response:
             if i.get("size_code") == "original":
                 resource = {"referenceID": referenceID, "url": i.get("url")}
                 params = buildQuery(
@@ -44,8 +50,8 @@ def lambda_handler(event, context):
                         "ref": referenceID,
                     }
                 )
-                response = requests.get(os.getenv("BASE_URL"), params=params)
-                resource.update({"name": response.json(), "path": event.get("path")})
+                response = callAPI(params)
+                resource.update({"name": response, "path": event.get("path")})
                 resourceArray.append(resource)
 
         return {
@@ -63,9 +69,9 @@ def lambda_handler(event, context):
                 "search": "*",
             }
         )
-        response = requests.get(os.getenv("BASE_URL"), params=params)
+        response = callAPI(params)
 
-        for i in response.json():
+        for i in response:
             resource = {"name": i.get("field8"), "reference": i.get("ref")}
             resourceArray.append(resource)
 
