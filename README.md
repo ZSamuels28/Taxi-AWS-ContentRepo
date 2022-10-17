@@ -95,7 +95,7 @@ Advanced Steps: Adding a Cloudfront Cache
 ```python
     object = {
         "Name": os.path.splitext(os.path.basename(key["Key"]))[0],
-        "Url": "https://[CLOUDFRONTURL]"
+        "Url": "https://[CLOUDFRONTURL]/"
         + key["Key"],
     }
 ```
