@@ -25,7 +25,7 @@ The following readme will go through how to set up a content repository for Taxi
 
 5. Go to the **Code** section within the Lambda function and paste the code found within the S3 folder of this repo. Save and deploy the code.
 
-6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources: **get-object-url** and **get-objects**, do not check the Configure as proxy resource box.
+6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources: **get-object-url** and **get-objects**, do not check the Configure as proxy resource box. Note: If you need quicker API calls, you can cache the API responses by utilizing API caching: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 
 7. Create a **GET** method under each of these resources, check the box for *Use Lambda Proxy integration*, and attach the Lambda Function to each of these methods.
 
@@ -88,7 +88,7 @@ The following readme will go through how to set up a content repository for Taxi
 
 22. Create a new mailing, add the header module and then click Search For Feed Data. This should now show all of your resources in the S3 bucket. When you click on one of these resources, the image and title should populate.
 
-Advanced Steps: Adding a Cloudfront Cache
+### Advanced Steps: Adding a Cloudfront Cache
 1) See https://medium.com/@tsubasakondo_36683/serve-images-with-cloudfront-s3-8691d5c387b6 for creating a CloudFront distribution. Ensure you can access the CloudFront URLs publicly.
 
 2) In the Lambda function, modify line objects in line 17 and line 35, where the "Url" value should be equal to your CloudFront url + key["key"]. For example:
@@ -125,7 +125,7 @@ Advanced Steps: Adding a Cloudfront Cache
 
 5. Go to the **Code** section within the Lambda function and paste the code found within the ResourceSpace folder of this repo. Save and deploy the code.
 
-6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources: **get-all-resources** and **get-resource**, do not check the Configure as proxy resource box.
+6. Go to the API Gateway service and create a new *REST API where you gain complete control over the request and response along with API management capabilities.* Create two resources: **get-all-resources** and **get-resource**, do not check the Configure as proxy resource box. Note: If you need quicker API calls, you can cache the API responses by utilizing API caching: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 
 7. Create a **GET** method under each of these resources, check the box for *Use Lambda Proxy integration*, and attach the Lambda Function to each of these methods.
 
